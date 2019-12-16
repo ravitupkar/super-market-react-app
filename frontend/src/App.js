@@ -29,13 +29,13 @@ function App() {
     <Router>
     <Suspense fallback={<div>Loading...</div>}>
     <React-Fragment>
-      {/* <Header/> */}
+      <Header/>
       {/* <Cart/> */}
       <Switch>
-          <Route path="/category/:slug">
+          <Route exact path="/products/:slug">
             <Products />
           </Route>
-          <Route path="/subcategory/:slug">
+          <Route exact path="/products/:slug/:slug">
             <Products />
           </Route>
           <Route path="/about">
@@ -87,7 +87,7 @@ function App() {
             <Default/>
           </Route>
         </Switch>
-      {/* <Footer/> */}
+      <Footer/>
     </React-Fragment>
     </Suspense>
     </Router>

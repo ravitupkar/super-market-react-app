@@ -7,7 +7,7 @@ function Navli(props) {
 
 	var navlist = props.navlis.map((navli, index) => 
 	<li key={index}>
-		<Link to={navli.slug}>{navli.subcategory}</Link>
+		<Link to={`products/${props.catslug}/${navli.slug}`}>{navli.subcategory}</Link>
 	</li>
 	);
 return (
@@ -16,7 +16,7 @@ return (
 		  <div className="row">
 			<div className="multi-gd-img">
 				<ul className="multi-column-dropdown">
-				<Link to={`category/${props.catslug}`}><h6>All {props.cat}</h6></Link>
+				<Link to={`products/${props.catslug}`}><h6>All {props.cat}</h6></Link>
 					
 
 					{navlist}
