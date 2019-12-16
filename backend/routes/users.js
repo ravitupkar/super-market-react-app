@@ -10,4 +10,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/getprofile/:id', auth, userController.getProfile);
 
+
+
 module.exports = router;

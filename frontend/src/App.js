@@ -4,6 +4,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import './App.css';
 import Profile from './pages/Profile/Profile';
 import Logout from './components/Logout';
+import Products from './pages/Products/Products';
 
 const Header = lazy(() => import('./components/Header/Header'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
@@ -28,11 +29,14 @@ function App() {
     <Router>
     <Suspense fallback={<div>Loading...</div>}>
     <React-Fragment>
-      <Header/>
+      {/* <Header/> */}
       {/* <Cart/> */}
       <Switch>
           <Route path="/category/:slug">
-            <AboutUs />
+            <Products />
+          </Route>
+          <Route path="/subcategory/:slug">
+            <Products />
           </Route>
           <Route path="/about">
             <AboutUs />
@@ -83,5 +87,11 @@ function App() {
             <Default/>
           </Route>
         </Switch>
-      <Footer/>
-    </React-Frag
+      {/* <Footer/> */}
+    </React-Fragment>
+    </Suspense>
+    </Router>
+  );
+}
+
+export default App;

@@ -21,8 +21,7 @@ router.post('/create-products', productController.createProducts);
 router.get('/getproducts', productController.getProducts);
 router.get('/getproduct/:id', productController.getProduct);
 
-
-
+router.post('/getproductsbycategory', productController.getProductsByCategory);
 
 
 

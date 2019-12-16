@@ -50,3 +50,25 @@ module.exports.getProduct = function(req, res, next) {
     });
 
 }
+
+
+
+module.exports.getProductsByCategory = function(req, res, next) {
+    console.log(req.body);
+    // res.json(req.body);
+    db.Category.findOne(req.body).then(resultcat => {
+        console.log(resultcat);
+          db.Product.find({category :resultcat._id}).populate('category').populate('subcategory')
+          .then(result => {
+             res.json(result);
+          })
+          .catch(err => {
+              next(err);
+          });
+    })
+    .catch(err => {
+        next(err);
+    });
+    
+   
+}

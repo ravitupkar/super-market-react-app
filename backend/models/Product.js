@@ -1,14 +1,14 @@
 let mongoose = require('mongoose');
 
 productSchema = new mongoose.Schema({
-    category : [{
+    category : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Category"
-    }],
-    subcategory : [{
+    },
+    subcategory : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "SubCategory"
-    }],
+    },
     imageUrl: {
         type : String,
         required : true
