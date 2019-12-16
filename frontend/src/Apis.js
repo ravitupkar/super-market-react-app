@@ -15,10 +15,11 @@ export const getnavbar = () => api.get(`/admin/getnavbar`)
 
 export const getproducts = () => api.get(`/admin/getproducts`)
 
-export const getproduct = (payload) => api.get(`/admin/getproduct`+payload)
+export const getproduct = (payload) => api.get(`/admin/getproduct/`+payload)
 
 export const getProductsByCategory = (payload) => api.post(`/admin/getproductsbycategory`, payload)
 
+export const getProductsBySubCategory = (payload) => api.post(`/admin/getproductsbysubcategory`, payload)
 
 
 const Apis = {
@@ -29,7 +30,8 @@ const Apis = {
     getnavbar,
     getproducts,
     getproduct,
-    getProductsByCategory
+    getProductsByCategory,
+    getProductsBySubCategory
 }
 
 export default Apis;   

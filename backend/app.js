@@ -26,7 +26,7 @@ var corsOptions = {
   optionsSuccessStatus: 200
 }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

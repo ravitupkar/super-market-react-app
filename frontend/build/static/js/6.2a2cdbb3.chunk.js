@@ -1,0 +1,2 @@
+(this["webpackJsonpsuper-market"]=this["webpackJsonpsuper-market"]||[]).push([[6],{70:function(t,e,n){"use strict";n.r(e),n.d(e,"default",(function(){return o}));var r=n(10),a=n(11),u=n(14),c=n(12),i=n(13),s=n(0),p=n.n(s),o=function(t){function e(){return Object(r.a)(this,e),Object(u.a)(this,Object(c.a)(e).apply(this,arguments))}return Object(i.a)(e,t),Object(a.a)(e,[{key:"render",value:function(){return p.a.createElement("div",null," Cart ")}}]),e}(s.Component)}}]);
+//# sourceMappingURL=6.2a2cdbb3.chunk.js.map

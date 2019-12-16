@@ -29,19 +29,16 @@ export default class Profile extends Component {
 
   render() {
     const { user } = this.state;
-    console.log(JSON.stringify(user));
+    // console.log(JSON.stringify(user));
     return (
       <>
         <Breadcrumbs page="Profile" />
-        <div class="products">
+        <div className="products">
           <div className="container">
             <div className="panel panel-default">
               <div className="panel-heading">
                 <h3 className="panel-title">
                   USER Profile &nbsp;
-                {localStorage.getItem('jwtToken') &&
-                    <button className="btn btn-primary" onClick={this.logout}>Logout</button>
-                  }
                 </h3>
               </div>
               <div className="panel-body">

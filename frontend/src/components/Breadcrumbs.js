@@ -5,7 +5,7 @@ export default function Breadcrumbs(props) {
   return (
     <>
       <div className="breadcrumbs">
-        <div className="container">
+        <div className="col-md-12">
           <ol className="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
             <li>
               <Link to="/"><span className="glyphicon glyphicon-home" aria-hidden="true"></span>Home</Link>

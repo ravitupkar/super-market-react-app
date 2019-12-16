@@ -1,13 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function DetailsProduct(props) {
-  let urlslug = `/details/${props._id}`;
-  return (
-    <Link to={urlslug}><img title=" " alt=" " src={props.imageUrl} /></Link>
-  )
-}
-
 function Products(props) {
   const products = props.products;
   // console.log(products);
@@ -22,7 +15,7 @@ function Products(props) {
             <figure>
               <div className="snipcart-item block">
                 <div className="snipcart-thumb">
-                  <DetailsProduct _id={product._id} imageUrl={product.imageUrl}/>
+                <Link to={`/product-details/${product.slug}`}><img title=" " alt=" " src={`/${product.imageUrl}`} /></Link>
                   <p>{product.name}</p>
                   <h4>₹{product.dPrice} <span>₹{product.oPrice}</span></h4>
                 </div>

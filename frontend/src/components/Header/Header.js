@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import Navbar from './Navbar';
 
 
+function AdminGreeting(props) {
+	return <li><Link to="/admin/dashboard">Admin</Link></li>;
+		
+}
 function UserGreeting(props) {
 	return <ul>
 		<li><Link to="/profile">Profile</Link></li>
 		<li><Link to="/logout">Logout</Link></li>
-		<li><Link to="/contact">Help</Link></li>
+		{localStorage.getItem('roll') == 'Admin' && <AdminGreeting />}
 	</ul>;
 }
 
@@ -32,13 +36,12 @@ export default function Header() {
 							<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <Link to="products">SHOP NOW</Link></p>
 						</div>
 						<div className="agile-login">
-							{localStorage.getItem('isAuthenticated') ? <UserGreeting /> : <GuestGreeting />
-
-							}
+						{/* {localStorage.getItem('roll'} == 'Admin' ? <AdminGreeting /> : ''} */}
+							{localStorage.getItem('isAuthenticated') ? <UserGreeting /> : <GuestGreeting />}
 
 						</div>
 						<div className="product_list_header">
-							<a href="/checkout"  className="w3view-cart" style={{"background": "transparent"}}><i className="fa fa-cart-arrow-down" aria-hidden="true">10</i></a>
+							<a href="/cart"  className="w3view-cart" style={{"background": "transparent"}}><i className="fa fa-cart-arrow-down" aria-hidden="true">10</i></a>
 						</div>
 						<div className="clearfix"> </div>
 					</div>
@@ -70,31 +73,7 @@ export default function Header() {
 				</div>
 				<Navbar />
 
-				{/* <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/store">Store</Link>
-        </li>
-        <li>
-          <Link to="/register">register</Link>
-        </li>
-        <li>
-          <Link to="/login">login</Link>
-        </li>
-        <li>
-          <Link to="/contact">contact</Link>
-        </li>
-        <li>
-          <Link to="/faq">faq</Link>
-        </li>
-      </ul>
-    </nav>  */}
+
 			</div>
 		</>
 	);

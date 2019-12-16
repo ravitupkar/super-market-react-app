@@ -28,6 +28,7 @@ export default class Register extends Component {
       email: '',
       password: '',
       cpassword: '',
+      roll : 'User',
       termsandconditions: '',
       message: '',
       redirect: false
@@ -49,7 +50,7 @@ export default class Register extends Component {
   }
   handleSubmit = async (event) => {
     event.preventDefault();
-    const { fName, lName, subscribe, email, password, termsandconditions } = this.state;
+    const { fName, lName, subscribe, email, password, termsandconditions, roll } = this.state;
     const payload =
     {
       firstName: fName,
@@ -57,11 +58,12 @@ export default class Register extends Component {
       subscribe: subscribe,
       email: email,
       password: password,
-      terms: termsandconditions
+      terms: termsandconditions,
+      roll : roll
     };
 
     api.createtUser(payload).then(res => {
-      console.log(JSON.stringify(res));
+      // console.log(JSON.stringify(res));
       this.setState({
         fName: '',
         lName: '',
@@ -111,7 +113,9 @@ export default class Register extends Component {
                   </div>
                 </div>
                 <h6>Login information</h6>
-                <input type="email" name="email" placeholder="Email Address" required="" value={this.state.email}
+                <input type="hidden" name="roll" placeholder="" required="" value={this.state.roll}
+                  onChange={this.handleInputChange} />
+                  <input type="email" name="email" placeholder="Email Address" required="" value={this.state.email}
                   onChange={this.handleInputChange} />
                 <input type="password" name="password" placeholder="Password" required="" value={this.state.password}
                   onChange={this.handleInputChange} />

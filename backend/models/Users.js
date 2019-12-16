@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema({
     terms : {
         type: Boolean, 
         required: true
+    },
+    roll : {
+        type: String, 
+        required: true
     }
 },{
     timestamps : true

@@ -40,8 +40,8 @@ module.exports.getProducts = function(req, res, next) {
 module.exports.getProduct = function(req, res, next) {
     // console.log(req.body);
     // res.json(req.body);
-    let id = req.params.id;
-    db.Product.findOne({_id : id}) 
+    let slug = req.params.slug;
+    db.Product.findOne({slug : slug}) 
     .then(result => {
         res.json(result);
     })
@@ -50,8 +50,6 @@ module.exports.getProduct = function(req, res, next) {
     });
 
 }
-
-
 
 module.exports.getProductsByCategory = function(req, res, next) {
     console.log(req.body);
@@ -68,7 +66,21 @@ module.exports.getProductsByCategory = function(req, res, next) {
     })
     .catch(err => {
         next(err);
-    });
-    
-   
+    });  
+}
+//getProductsBySubCategory
+module.exports.getProductsBySubCategory = function(req, res, next) {
+    console.log({slug : req.body.slug});
+    db.Subcategory.findOne(req.body).then(resultcat => {
+        db.Product.find({subcategory : resultcat._id}).populate('subcategory')
+        .then(result => {
+           res.json(result);
+        })
+        .catch(err => {
+            next(err);
+        });
+    })
+    .catch(err => {
+        next(err);
+    })
 }

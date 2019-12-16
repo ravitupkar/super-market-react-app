@@ -19,11 +19,11 @@ module.exports.login = function(req, res, next) {
 
     db.Users.findOne({email : req.body.email})
     .then(user =>{
-        let {_id, email, password } = user;
+        let {_id, email, password, roll } = user;
         const valid = user.comparePassword(req.body.password);
         if (valid) {
             var token = jwt.sign({ _id, email, password}, process.env.SECRET);
-            res.status(200).json({_id, email, token});
+            res.status(200).json({_id, email, token, roll});
         } else {
             throw new Error('Invalid Usaename/Password');
         }

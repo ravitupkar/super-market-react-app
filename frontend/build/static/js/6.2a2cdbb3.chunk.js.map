@@ -1,0 +1,1 @@
+{"version":3,"sources":["Cart.js"],"names":["Cart","Component"],"mappings":"8NAEqBA,E,iLAEjB,OACE,2C,GAH4BC","file":"static/js/6.2a2cdbb3.chunk.js","sourcesContent":["import React, { Component } from 'react';\r\n\r\nexport default class Cart extends Component {\r\n  render() {\r\n    return (\r\n      <div> Cart </div>\r\n    );\r\n  }\r\n}\r\n"],"sourceRoot":""}

@@ -33,13 +33,14 @@ export default class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     const payload = { email, password };
-    alert(JSON.stringify(payload));
+    // alert(JSON.stringify(payload));
     api.UserLogin(payload).then(result => {
-      alert(JSON.stringify(result.data.token));
+      // alert(JSON.stringify(result.data.token));
       console.log(JSON.stringify(result));
       localStorage.setItem('_id', result.data._id);
       localStorage.setItem('email', result.data.email);
       localStorage.setItem('token', result.data.token);
+      localStorage.setItem('roll', result.data.roll);
       localStorage.setItem('isAuthenticated', true);
       this.setState({
         email: '',

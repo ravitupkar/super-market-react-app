@@ -4,7 +4,9 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import './App.css';
 import Profile from './pages/Profile/Profile';
 import Logout from './components/Logout';
-import Products from './pages/Products/Products';
+import ProductsByCat from './pages/Products/ProductsByCat';
+import ProductsBySubCat from './pages/Products/ProductsBySubCat';
+import CreateProduct from './Admin/CreateProduct';
 
 const Header = lazy(() => import('./components/Header/Header'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
@@ -18,7 +20,7 @@ const Store = lazy(() => import('./pages/Store/Store'));
 const Default = lazy(() => import('./Default'));
 const Home = lazy(() => import('./pages/Home/Home'));
 const Checkout = lazy(() => import('./pages/Checkout/Checkout'));
-const Details = lazy(() => import('./pages/Details/Details'));
+const Details = lazy(() => import('./pages/Details/ProductDetails'));
 const Offers = lazy(() => import('./pages/Offers/Offers'));
 const Terms = lazy(() => import('./pages/Terms/Terms'));
 const Privacy = lazy(() => import('./pages/Privacy/Privacy'));
@@ -32,11 +34,11 @@ function App() {
       <Header/>
       {/* <Cart/> */}
       <Switch>
-          <Route exact path="/products/:slug">
-            <Products />
+          <Route exact path="/products-by-category/:slug">
+            <ProductsByCat />
           </Route>
-          <Route exact path="/products/:slug/:slug">
-            <Products />
+          <Route exact path="/products-by-subcategory/:subcatslug">
+            <ProductsBySubCat />
           </Route>
           <Route path="/about">
             <AboutUs />
@@ -50,7 +52,7 @@ function App() {
           <Route path="/store">
             <Store />
           </Route>
-          <Route path="/details/:id">
+          <Route path="/product-details/:slug">
             <Details/>
           </Route>
           <Route path="/cart">
@@ -83,11 +85,15 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
+          <Route  path="/admin/dashboard">
+            <CreateProduct />
+         </Route>
           <Route>
             <Default/>
           </Route>
         </Switch>
       <Footer/>
+
     </React-Fragment>
     </Suspense>
     </Router>
